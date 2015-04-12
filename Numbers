@@ -1,0 +1,72 @@
+
+// “Integers are whole numbers with no fractional component, such as 42 and -23”
+
+
+let minValue = UInt.min
+let minValue2 = Int.max
+
+// UInt8.max = 255
+// UInt16.max = 65_535
+// UInt32.max = 4_294_967_295
+
+// Int.max = 9_223_372_036_854_775_807
+
+// Moral of the story, ALWAYS USE 'Int'
+
+// UINT32_MAX = another method of getting the max
+// uint defaults to 32 bytes
+
+
+// “An Int8 constant or variable can store numbers between -128 and 127, whereas
+//  a UInt8 constant or variable can store numbers between 0 and 255. ”
+// minValue.min      The .min would be called a "member" in this scenario. Keep that in mind.
+
+
+
+
+// “Floating-point numbers are numbers with a fractional component, such as 3.14159, 0.1, and -273.15”
+
+        // "Double represents a 64-bit floating-point number. Use it when floating-point values must be very large or particularly precise. Reads up to 15 decimal places
+
+        // Float represents a 32-bit floating-point number. Use it when floating-point values do not require 64-bit precision." Reads up to 6 decimal places
+
+
+
+
+
+// swift always defaults to double instead of float. ALWAYS USE TYPE DOUBLE
+
+
+var pieDub:Double = 3.14159265358979323846264338327950            // goes to the 15th decimal place  👉
+var pieFlo:Float = 3.14159265358979323846264338327950             // notice the 6th decimal place... 👉
+pieDub + Double(pieFlo)                                           // also could have put in a UInt16 or UInt8
+
+// 👆 can't add double to a float so initiated a new pieFlo variable of type Double. Could have done it vice versa as well
+
+// the value that we assigned to pieDub (👆) is called a "literal"
+
+
+
+
+let newPie1 = Int(pieFlo)                             // during conversions, floating pie values are always truncated 👉
+
+
+var coolestPieName = pieDub
+
+
+
+// i don't think type alias are necessary, but keep a lookout to see if it comes up in texts
+
+
+
+
+let chuch = true
+let nay = false
+println(nay)
+
+
+if statesToWork.count <= 1 {        // When using the if statement, the value that it's evaluating MUST be type: Bool
+    println("\(nay)")
+}else{
+    println("\(chuch)")
+}

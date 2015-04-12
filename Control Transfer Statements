@@ -1,0 +1,178 @@
+
+
+// ****                              ****
+// **** CONTROL TRANSFER STATEMENTS  ****
+// ****                              ****
+
+
+
+// Control transfer statements change the order in which your code is executed, by transferring control from one piece of code to another. Swift has four control transfer statements:
+
+    // ◎ - 'continue'
+    // ◎ - 'break'
+    // ◎ - 'fallthrough'
+    // ◎ - 'return'
+
+
+
+// The continue statement tells a loop to stop what it is doing and start again at the beginning of the next iteration through the loop. It says “I am done with the current loop iteration” without leaving the loop altogether.
+
+
+
+
+
+
+//
+//
+//let puzzleInput = "great minds think alike"
+//var puzzleOutput = ""
+//for character in puzzleInput {
+//    switch character {
+//    case "a", "e", "i", "o", "u", " ":
+//        continue
+//    default:
+//        puzzleOutput += character                 // 👈
+//    }
+//}
+//println(puzzleOutput)
+
+
+
+// 👆 above it example from the book. Notice how puzzleOutput += no longer works. This is because this action only works with Arrays now. There must be an array on both sides of the +=
+
+
+let puzzleInput = "great minds think alike"
+var puzzleOutput = ""
+
+for character in puzzleInput {
+    switch character {
+    case "a", "e", "i", "o", "u": // " "
+        continue
+    default:
+        puzzleOutput.append(character)              // this is the same as 'puzzleOutput += character'
+    }
+}
+
+println(puzzleOutput)
+
+// 👆 for puzzleInput, if it matches the first case, it will continue onto the second one!? Else, it will default and append the character to puzzleOutput which leaves us with the final println(puzzleOutput). I removed the spaces to that they're not concactenated.
+
+
+
+
+
+
+
+
+
+// The break statement ends execution of an entire control flow statement immediately. It can be used inside a switch statement or loop statement when you want to terminate the execution of the switch or loop statement earlier than would otherwise be the case.
+
+
+// ◎ - BREAK IN A LOOP STATEMENT
+    // When used inside a loop statement, break ends the loop’s execution immediately, and transfers control to the first line of code after the loop’s closing brace (}). No further code from the iteration of the loop is executed.
+
+//BREAK IN A SWITCH STATEMENT
+
+    // When used inside a switch statement, break causes the switch statement to end its execution immediately, and to transfer control to the first line of code after the switch statement’s closing brace (}). You can write a case as "break" and if the case is matched, the break statement inside the case will end the switch statement immediately.
+
+
+let numberSymbol: Character = "三" // simplified chinese for the number 3
+var possibleIntergerNumber: Int?
+switch numberSymbol {
+case "1", "١", "一", "๑":
+possibleIntergerNumber = 1
+
+case "2", "٢", "二", "๒":
+possibleIntergerNumber = 2
+
+case "3", "٣", "三", "๓":
+    possibleIntergerNumber = 3
+
+case "4", "٤", "四", "๔":
+    possibleIntergerNumber = 4
+
+default:
+    break                // when i try to use continue, get error message that 'continue' is only allowed inside a loop
+}
+
+if let integerValue = possibleIntergerNumber {
+    println("The integer value of \(numberSymbol) is \(integerValue)") // the optional binding will succeed only if possibleIntegerValue was set to an actual value by one of the switch statement’s first four cases.
+
+} else {
+    println("An integer value could not be found for \(numberSymbol)")  // figure out how to add tick marks around the numberSymbol
+}
+
+
+// 👆 This example checks numberSymbol to determine whether it is a Latin, Arabic, Chinese, or Thai symbol for the numbers 1 to 4. When the default case matches, the break statement inside the case ends the switch statement’s execution immediately.
+
+
+
+
+
+
+
+
+
+// Switch statements in Swift do not fall through the bottom of each case and into the next one. Instead, the entire switch statement completes its execution as soon as the first matching case is completed. If you really need C-style fallthrough behavior, you can opt in to this behavior on a case-by-case basis with the fallthrough keyword.
+
+
+let integerToDescribe = 5
+var description = "The number \(integerToDescribe) is"
+
+switch integerToDescribe {
+    case 2, 3, 5, 7, 11, 13, 17, 19:
+        description += " a prime number and also"
+        fallthrough     // allows the case statement above to "fall into" and append the statement below to the above statement. The fallthrough keyword doesn't check the case condition that it falls into, it simply causes code execution to move directly to the statements inside the next case (or default case👇) block
+
+    default:
+        description += " an integer"
+
+}
+
+println(description)
+
+
+
+
+
+// LABELED STATEMENTS
+
+// Loops and switch statements can both use the break statement to end their execution prematurely. You can mark a loop statement or switch statement with a statement label, and use this label with the break statement or continue statement to end or continue the execution of the labeled statement.
+
+
+//  label name: while condition {
+//      statements
+//  }
+
+
+
+let finalSquare3 = 25
+var board3 = [Int](count:finalSquare3 + 1, repeatedValue:0)
+board3[03] = +08
+board3[06] = +11
+board3[09] = +09
+board3[10] = +02
+board3[14] = -10
+board3[19] = -11
+board3[22] = -02
+board3[24] = -08
+var diceRoll3 = 0
+var square3 = 0
+
+gameLoop: while square3 != finalSquare3 {
+    if ++diceRoll3 == 7 {diceRoll3 = 1}
+    switch square3 + diceRoll3 {
+    case finalSquare3:                   // diceRoll will move us to the final square, so the game is over
+            break gameLoop
+
+    case let newSquare where newSquare > finalSquare3:      // diceRoll will move us beyond the final square, so roll again
+        continue gameLoop
+
+    default:        // this is a valid move, so find out its effect
+        square3 += diceRoll3
+        square3 += board3[square3]              // not sure exactly what this line means
+    }
+}
+println("Game Over!")
+
+println("Hello World")

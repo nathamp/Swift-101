@@ -1,0 +1,207 @@
+
+// OPERATORS - “a special symbol or phrase that you use to check, change, or combine values.” i.e +, -, *, %
+
+// “More complex examples include the logical AND operator && (as in if enteredDoorCode && passedRetinaScan) and the increment operator ++i, which is a shortcut to increase the value of i by 1”
+
+
+
+// Operators can be:
+    // Unary    -   Operates on a single target (i++)
+    // Binary   -   Operates on two targets (i + i)
+    // Ternary  -   Operates on three targets (a ? b : c)
+
+
+5 + 5
+5 - 5
+5 / 5
+5 * 5
+10 % 3            // The remainder operator (a % b) works out how many multiples of b will fit inside a and returns the value that is left over (known as the remainder)
+
+10 % 2.1
+
+// increment operator (++) and a
+// decrement operator (--)
+
+var aye = 0
+var bee = 0
+var cee = 0
+let ayeBee = ++aye + bee++ + ++cee
+ayeBee                          // Notice how ayeBee calculates to 2 instead of 3 (see bee++)
+
+// “If the operator is written before the variable, it increments the variable before returning its value.”
+// “If the operator is written after the variable, it increments the variable after returning its value.”
+
+var ayeTwo = ayeBee + -cee
+
+let thin = -3
+let thinOne = -thin
+let thinTwo = +thin
+
+// The unary minus operator (-) is prepended directly before the value that it is operating on. It turns the value into a negative.
+// The unary plus operator (+) simply returns the value it operates on, without any change. It turns the value into a positive, unless the value is a negative, in which case, it will remain a negative. Doesn't really do anything but is used to "add symmetry" when coding
+
+
+aye             // notice how aye is equal to 1
+aye += 3        // This is shorthand for aye = aye + 3
+
+
+// COMPARISON OPERATORS - return booleans
+
+    // Equal to (a == b)
+    // Not equal to (a != b)
+    // Greater than (a > b)
+    // Less than (a < b)
+    // Greater than or equal to (a >= b)
+    // Less than or equal to (a <= b)
+
+// IDENTITY OPERATORS - return booleans
+
+    // identical to (===)
+    // not identical to (!==)
+
+
+
+
+
+
+/*
+// Ternary  -   Operates on three targets (a ? b : c) which takes the form "question ? answer1 : answer2” “It is a shortcut for evaluating one of two expressions based on whether question is true or false. If question is true, it evaluates answer1 and returns its value; otherwise, it evaluates answer2 and returns its value.”
+
+Ternary conditional operator is shorthand for the code below:
+
+if question {
+    answer1
+} else {
+    answer2
+}
+
+*/
+
+
+let contentHeader = 40
+let hasHeader = false       // notice the difference when this is changed from true to false
+let rowHeight = contentHeader + (hasHeader ? 50 : 20)   // if hasHeader = true, add 50. Else, add 20.
+
+// The above can also be written as 👇
+
+/*
+let contentHeight = 40
+let hasHeader = true
+var rowHeight = contentHeight
+
+if hasHeader {
+    rowHeight = rowHeight + 50
+} else {
+    rowHeight = rowHeight + 20
+}
+*/
+
+
+// the ternary conditional operator is concise to use, but can lead to hard-to-read code if overused
+
+
+
+// Logical NOT (!a) - Logical operators modify or combine the Boolean logic values true and false
+
+// Logical AND (a && b) - The logical AND operator (a && b) creates logical expressions where both values must be true for the overall expression to also be true. If left side is false, right side isn't evaluated.
+
+// Logical OR (a || b) - You use it to create logical expressions in which only one of the two values has to be true for the overall expression to be true. If left side is true, right side isn't evaluated.
+
+        // Look up "short-circuit evaluation" (If the left side of a Logical OR expression is true, the right side is not evaluated, because it cannot change the outcome of the overall expression.)
+
+
+
+let hasRoomkey = true
+let hasSafekey = false
+let safeHasMoney = true
+
+if hasRoomkey && hasSafekey {
+    println("Cash Mulah")
+}else{
+    println("GTFOH")
+}
+
+
+if hasRoomkey || hasSafekey {
+    println("Welcome")
+}else{
+    println("Bye bye")
+}
+
+if (hasRoomkey || hasSafekey) && safeHasMoney {     // 👈 Parenthesis don't need to be added. Makes code cleaner to read
+    println("Let's get this bread")
+}else{
+    println("Dang it")
+}
+
+
+
+let wiseWords = "\"This time next year, i'm gonna be a beast\" - Alex N."     // use "\ to essentially skip a spot and add the extra quote mark
+
+
+for Character in wiseWords{
+    println("There are \(wiseWords) characters in this wise word!")          // Same as below
+}
+
+for Character in wiseWords{
+    println("There are \(countElements(wiseWords)) characters in this wise word!")      // Same as above - USE THIS ONE!!
+}
+//  👆 Note also that the character count returned by countElements is not always the same as the length property of an NSString that contains the same characters. The length of an NSString is based on the number of 16-bit code units within the string’s UTF-16 representation and not the number of Unicode characters within the string. To reflect this fact, the length property from NSString is called utf16count when it is accessed on a Swift String value.”
+
+// \(wiseWords) <-- This is called String Interpolation (see above)
+// The expressions you write inside parentheses within an interpolated string cannot contain an unescaped double quote (") or backslash (\), and cannot contain a carriage return or line feed.
+
+
+
+// Swift provides three ways to compare String values: string equality, prefix equality, and suffix equality.
+
+wiseWords
+let wiseWordss = wiseWords                      // 👈 String Equality (bool) baby - “equal if they contain exactly the same                                                             characters in the same order:”
+
+if wiseWords == wiseWordss {
+    println("One in the same")
+}else{
+    println("Two far apart")
+}
+
+
+
+// Consider the array below...
+
+let codingPath = [ "First, learn how to write and read code",
+    "Second, use that skill to build a great app",
+    "Third, 0 use skills to gain continuous income",
+    "Third, 1 build apps from anywhere in the world",
+    "Third, 2 so far, we're on the right path",
+    "Fourth, 0 the natural flow of life is always moving forward",
+    "Fourth, 1 if you're not moving forward, you're moving backward"
+]
+
+
+var thirdEye = 0
+
+for scene in codingPath {
+    if scene.hasPrefix("Third,") {              // use of the .hasPrefix method
+        ++thirdEye
+
+}
+}
+println("There are \(thirdEye) parts to your third👀Eye")
+
+
+
+var wardWord = 0
+
+for scene in codingPath {
+    if scene.hasSuffix("ward"){
+        ++wardWord
+    }
+}
+println("there's always more than \(wardWord) ways to get what you want")
+
+
+// “Swift’s String and Character types are fully Unicode-compliant Unicode is an international standard for encoding and representing text.
+
+// #####################################=================================================###################################
+// #####################################=================================================###################################
+// #####################################=================================================###################################

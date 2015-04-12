@@ -1,0 +1,662 @@
+
+// ****            ****
+// **** FUNCTIONS  ****
+// ****            ****
+
+
+
+// Functions are self-contained chunks of code that perform a specific task. You give a function a name that identifies what it does and you can call that name whenever you need for that function to be performed.
+
+    // Every function in Swift has a type consisting of the function's Parameter Type and its Return Type. You can use this type like any other type in Swift.
+
+    //  Functions can be nested into other functions to encapsulate useful functionality.
+
+
+// When you define a function, optionally, you can define one or more named, typed values, called Parameters (aka "input"), that the function takes as input, AND/OR a type of value that the function will pass back as an output (called its Return Type) once it's done.
+
+// TO USE A FUNCTION, YOU "CALL" THAT FUNCTION. A FUNCTION HAS 3 PARTS:
+    //  What the function does
+    //  What it expects to receive
+    //  What it returns when it is done
+
+// Every function has a function name. Choose a name which describes the task that the function performs. "Call" a function, using its name, in order to use it and and pass it input values (known as Arguments) that match the types of the function’s parameters.
+        // A function’s 'arguments' must always be provided in the same order as the function’s parameter list.
+
+
+
+func sayHello(personName: String, personAge: Int) -> String {     // indicate the function's return using the -> followed by the return type
+    let greeting = "Hello, " + personName + "!"
+    let ageQuestion = "Are you really " + String(personAge) + " years old!?"
+    return greeting + " " + ageQuestion
+    // return greeting
+}
+
+println(sayHello("Alex", 27))
+
+
+
+
+// 👆 all of the information is rolled up in the function's "definition". The definition describes what the function does (sayHello), what it expects to receive (personName: String), and what it returns (-> String) when it is done. The definition is prefixed with the func keyword.
+
+println(sayHello ("Mary", 21))      // 👈 I just used my very first function!!!!! "Mary" is an argument. It is a string argument value in parentheses that's passed into the functions.
+println(sayHello ("John", 23))      // 👈 sayHello can be wrapped in the println() function because it returns a string value. Technically, this is a function within a function.
+
+// 👆 not sure why the lines above stopped working. Need to look this up later. Didn't work because i had added personAge: INT to the function's definition. Need to find out how to add this in later so that the code is able to compile.
+// update to the direct line above, i was able to resolve the issue by converting the personAge (Int type) to a string so that i could concactonate that with the string constant.
+
+
+
+func sayHelloAgain(personName2: String) ->String {
+    return "Hello again, " + personName2 + "!"
+}
+
+println(sayHelloAgain("Brian"))     // 👈"Brian" is an example of me passing this function a string argument.
+println(sayHelloAgain("Jasoné"))    // because the function returns a string, we can use it w/ println to see the output
+
+
+func dogInfo(dogsName: String, dogsAge: Int) -> String {            // 👈 This is a function with multiple parameters
+    return "The dog named \(dogsName) is actually \(dogsAge) years old"
+}
+
+dogInfo("Fido", 1)
+dogInfo("Sean", 3)
+dogInfo("Face", 5)
+
+println((dogInfo("Snow", 3)))
+
+
+
+
+func halfOpenRangeLength (start: Int, end: Int) -> Int{     // 👈 function w/ multiple input parameters (as already done above). Parameters are however, not required.
+    return end - start
+}
+
+halfOpenRangeLength(0, 25)
+
+
+
+
+func sayHelloWorld() -> String {        // 👈 function w/o any parameters. Just a return.
+    return "Hello World!"
+}
+
+sayHelloWorld()
+println(sayHelloWorld())
+
+
+
+
+func waveGoodbye(byePersonName: String) {       // 👈 function w/o return value
+    println("Goodbye \(byePersonName). See you soon!")      // this doesn't HAVE to be 'return"
+}
+
+waveGoodbye("Lulu")         // technically, this does return a type Void value which is simply an empty tuple ()
+waveGoodbye("Jose")
+
+
+// 👇 the retuen value of a function can be ignored when it's called
+
+func printAndCount(stringToPrint: String) -> Int {
+    println(stringToPrint)
+    return countElements(stringToPrint)
+}
+func printWithoutCounting(stringToPrint:String) {
+    printAndCount(stringToPrint)
+}
+
+printAndCount("How about lunch? Where would you like to go!?")
+printWithoutCounting("How about lunch? Where would you like to go!?")  // notice how for printWithoutCounting, the first function printAndCount, which is set to return an Int value, was called, yet the return value was ignored in the second function because in the definition of the second function, we configured it without a return.
+
+// Return values can be ignored, but a function that says it will return a value MUST always do so. Doing otherwise will result in a compile-time error.
+
+
+
+
+// FUNCTIONS WITH MULTIPLE RETURN VALUES
+
+// You can use a tuple type as the return type for a function to return multiple values as part of one compound return value.
+
+
+func count(string: String) -> (vowels: Int, consonants: Int, others:Int) { // 👈 notice the tuple for multiple return types
+    var vowels = 0, consonants = 0, others = 0
+    for character in string{
+        switch String(count)/*.lowercaseString*/ {
+        case "a", "e", "i", "o", "u":
+            ++vowels
+
+        case "b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z":
+            ++consonants
+
+        default:
+            ++others
+
+        }
+    }
+    return (vowels, consonants, others)
+}
+
+count("Hey There")
+
+let total = count("some arbitrary string!")
+println("\(total.vowels) vowels and \(total.consonants) consonants")
+
+
+
+
+
+
+// FUNCTIONS WITH NO RETURN VALUE
+
+
+func someFunction (parameterName: Int) {
+    // function body goes here, and can use parameterName   // Parameters in here are known as 'local parameter names'
+    // to refer to the argument value for that parameter    // because they're only available for use within the function's
+                                                            // body.
+
+}
+
+
+// if you want users of the function to define parameter names when they call your function, define an 'external parameter name' for each parameter IN ADDITION to the local parameter name. Write the external parameter name in front of the local parameter name, seperated by a space.
+
+
+
+
+
+
+
+
+
+
+
+// FUNCTIONS WITH EXTERNAL PARAMETER NAME AND SHORTHAND EXTERNAL PARAMETER NAME
+
+func someFunction2 (externalParamaterName localParameterName: Int) {        // ALWAYS use external name to call function
+
+    // function body goes here, and can use localParameterName
+    // to refer to the argument value for that parameter
+
+}
+
+
+
+// If you provide an External Parameter name for a parameter, that external name must ALWAYS be used when calling the function.
+
+
+
+
+
+func dogNameAndAge2 (/*insertDoggieName*/ #doggieName: String, /*insertDoggieAge*/ #doggieAge: Int, var /*insertDoggieSex*/ #doggieSex:String) -> String { // notice '#' sign
+    switch doggieSex {          // 👈 notice that the local name is still being used here
+
+    case "he", "male", "Male":
+    doggieSex = "he"
+
+    case "she", "female", "Female":
+    /*var*/ doggieSex = "she"       // the 'var' keyword wasn't even needed for this to compile
+
+
+    default:
+    doggieSex = "it"
+
+    }
+return "This dog's named \(doggieName) and \(doggieSex) is \(doggieAge) years old!"
+}
+
+dogNameAndAge2(doggieName: "Paul", doggieAge: 5, doggieSex: "male")
+
+
+
+func join (s1:String, s2:String, joiners:String) -> String {
+    return s1 + joiners + s2
+}
+
+join("Hello", "World", ", ")
+
+
+// to make the join function above clearer when calling the function, we'll add some external parameter names to it. I'll recreate it as joiner
+
+func joiner (joinThisString s1:String, toThisString s2:String, withThisJoiner join:String) -> String{
+    return s1 + join + s2
+}
+
+joiner(joinThisString: "Hello", toThisString: "World!", withThisJoiner: ", ")
+joiner(joinThisString: "How is ", toThisString: " doing!?", withThisJoiner: "she")
+
+
+// 👆the shorthand way to write the extenal parameter name would have been to simply add a # sign to the local parameter name. If that local parameter name is already unambiguous, you can just add the # sign. This tells Swift to use that name as both the local parameter name and the external parameter name.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// FUNCTIONS WITH SHORTHAND EXTERNAL PARAMETER NAME
+
+
+
+
+
+func containsCharacter (#string: String, #characterToFind:Character) -> Bool{
+    for character in string {
+        if character == characterToFind {
+            return true
+        }
+    }
+ return false
+}
+
+containsCharacter(string: "Howdie", characterToFind: "y")
+
+containsCharacter(string: "Sure", characterToFind: "s") // 👈 interesting how it returns false even though this is an s
+
+
+
+let containsAvee = containsCharacter(string: "aardvark", characterToFind: "v")
+// line above will return true because there's a lowercase v in the string.
+
+containsAvee
+
+
+
+
+
+
+
+
+
+
+
+
+// FUNCTIONS WITH DEFAULT PARAMETER VALUES - place parameters with default values at the end of the function's definiton
+
+func newJoiner(#joinThisString: String, #withThisNewString:String, /*#*/usingThisDefaultJoiner: String = " ") -> String {
+    return joinThisString + usingThisDefaultJoiner + withThisNewString
+}
+
+
+// 👆 adding the shorthand external name to the 'usingThisDefaultJoiner' returns an extraneous error message. Notice how the i've set usingThisDefaultJoiner to be explicit. I could have easily made it implicit.
+
+
+newJoiner(joinThisString: "Hello", withThisNewString: "World!")
+newJoiner(joinThisString: "Hello", withThisNewString: "World!", usingThisDefaultJoiner: " - ")
+
+// 👆 in the two lines above, on the first line, i used the default value to concactonate the the two strings. In the second line, i actually set the value for the 'usingThisDefaultJoiner' line. If i'm not going to use the default value, then i have to erase it altogether.
+
+
+
+// 👇 just some quick fun 😁
+
+
+func gameResults (
+
+    #washingtonWizards: String,
+    #miamiHeat: String,
+    #inThisCity:String,
+    var optionalFinalWizardScoreWas: Int = 0,   // You can avoid defining a new variable yourself within the function by specifying one or more parameters as variable parameters instead. See below...
+
+    var optionalFinalMiamiScoreWas: Int = 0,
+    var optionalThisTeamWon:String = "This team won!",
+    var optionalThisTeamLost:String = "",
+    var optionalExcitingGame:Bool = true,
+    var optionalBriefDescription:String = ""
+
+                )
+
+    -> String {
+
+        // i'm good enough to but in a simple number comparison string up here. Input the scores
+
+        switch optionalThisTeamWon{
+        case "miami Heat", "Miami Heat", "the Heat", "#SuckABron", "the miami Heat", "the Miami Heat":
+            let optionalThisTeamWon = "The Miami Heat"
+
+        case "washington Wizards", "the Wizards", "Washington Wizards", "the washington Wizards", "the Washington Wizards":
+            let optionalThisTeamWon = "The Washington Wizards"
+
+        default:
+            let optionalThisTeamWon = "We'll have an update for you as soon as this game is over."
+        }
+
+        if optionalThisTeamWon == "The Miami Heat"{
+            let optionalThisTeamWon = true
+        }
+
+        // maybe i need to call a new variable for the example that i'm trying to pull off below. Call that new variable, and see if it matches the optionalThisTeamWon above...
+
+//        switch optionalBriefDescription{
+//
+//            case optionalThisTeamWon.
+//                optionalBriefDescription = "In today's thriller match, the Miami Heat fired things up as they sizzled all over the court in what we can only describe as Lebron Jame's best gave ever!. We'll put in a description here later to let you know how this game went!"
+//
+//            case optionalThisTeamWon = "":
+//                optionalBriefDescription = "-"
+//
+//
+//            {
+
+        return "In today's exciting game, \(optionalThisTeamWon) beat \(optionalThisTeamLost). The final score was \(optionalFinalMiamiScoreWas) to \(optionalFinalWizardScoreWas)! Stay tuned for the game highlights!"
+
+        }
+
+
+// 👆 recognize in the above line that parameters with default values are not required to have External Parameter Names assigned. The External Parameter Names are assigned to parameters with default values by default.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// VARIADIC PARAMETERS - A Variadic Parameter accepts zero or more values of a specified type. You write a Variadic Parameter by inserting an elipsis (...) after a parameter's type name.
+
+    // The values passed to a Variadic Parameter are made available in the body of the function as an array of the appropriate type.
+
+
+func arithmeticMean (numbers:Double...) -> Double{
+    var total:Double = 0
+    for number in numbers {
+        total += number
+    }
+    return total/Double(numbers.count)
+}
+
+arithmeticMean(3,4,5,3,9,5,6,2,3)
+arithmeticMean(3,8,19)
+
+            // 👆 “A function may have AT MOST one variadic parameter, and it must ALWAYS appear last in the parameter list, to avoid ambiguity when calling the function with multiple parameters.”
+
+            // “If your function has one or more parameters with a default value, and ALSO has a variadic parameter, place the variadic parameter after all the defaulted parameters at the very end of the list.”
+
+
+
+
+
+
+
+
+
+
+
+
+//CONSTANT AND VARIABLE PARAMETERS
+
+    // You can avoid defining a new variable yourself within the function by specifying one or more parameters as variable parameters instead.
+
+
+func alignRight (var string:String, count:Int, pad:Character) -> String {
+    let amountToPad = count - countElements(string)
+    for _ in 1...amountToPad {
+        string = String(pad) + string
+    }
+    return string
+
+}
+
+
+let originalString = "Hello"
+let paddedString = alignRight(originalString, 10, "-")
+
+
+paddedString
+originalString
+
+
+        // “The changes you make to a variable parameter do not persist beyond the end of each call to the function, and are not visible outside the function’s body. The variable parameter only exists for the lifetime of that function call.”
+
+
+
+
+
+
+
+
+
+
+
+//IN AND OUT PARAMETERS
+
+        // If you want a function to modify a parameter’s value, and you want those changes to persist after the function call has ended, define that parameter as an in-out parameter instead.
+
+// Write an in-out parameter by placing the inout keyword at the start of its parameter definition.
+
+// An in-out paramater has a value that's passed into the function, is modified by the function, and is passed back out of the function TO REPLACE THE ORIGINAL VALUE.
+
+        // an in-out parameter cannot have default values
+        // variadic values cannot be marked as in-out
+        // if you mark a value as inout, it cannot also be marked as var or let
+        // you can't pass in a string literal into an in-out parameter
+        // YOU CAN ONLY PASS VARIABLES INTO IN-OUT PARAMETERS
+
+
+
+func swapTwoInts (inout aaa:Int, inout bbb:Int) {
+    let temporaryA = aaa
+    aaa = bbb
+    bbb = temporaryA
+
+}
+
+
+var someIntt = 3
+var anotherIntt = 107
+// swapTwoInts(&someInt, &anotherIntt)  // not exactly sure why this line doesn't work. Need to find out.
+
+println("someInt is now \(someIntt), and anotherInt is now \(anotherIntt)")
+
+
+
+
+func testFunction (inout testLetterA: String, inout testLetterB: String) -> String {
+    return testLetterA + testLetterB + "equals what!?"
+}
+// testFunction(&"Two", &"Two")  // this one doesn't work either albeit i get a different error code
+
+
+        // In-out parameters are not the same as returning a value from a function. A return value may not be defined but the function will still modify the values. In-out values are simply an alternative for a function to have an effect outside of the scope of its function's body.
+
+
+
+
+
+
+
+
+
+
+
+// FUNCTION TYPES
+
+func addTwoInts (intA:Int, intB:Int) -> Int {       // 👈This function type is (Int,Int) -> Int
+    return intA + intB
+}
+addTwoInts(4, 9)
+
+
+
+func multiplyTwoInts (intA:Int, intB:Int) -> Int {  // 👈 This function type is (Int,Int) -> Int
+    return intA * intB
+}
+multiplyTwoInts(4, 9)
+
+
+
+func printHelloWorld () {        // 👈 This "function type" is () -> () because it has no parameters and returns Void
+    println("hello, world!")
+}
+printHelloWorld()
+
+// Functions that don’t specify a return value always return Void, which is equivalent to an empty tuple in Swift, shown as ()
+
+
+
+
+// 👇 I'm going to initiate a variable that's a function but i'll initiate it using the function type
+
+var additionFunction: (Int,Int) -> Int = addTwoInts  // 👈 “Set this new variable to refer to the function called addTwoInts.”
+additionFunction (9,4)
+
+
+
+var newMultiplyFunction: (Int,Int) -> Int = multiplyTwoInts
+newMultiplyFunction(9,4)
+
+// 👆 Seems as if first we have to create the function above, then we can use its structure in a new function that mimics the initial function.
+
+
+
+var newestMultipleFunction = newMultiplyFunction  // 👈notice that was done here
+newestMultipleFunction(9,5) // this is the new function
+newMultiplyFunction (9,5)   // notice i can still call this function
+
+
+newestMultipleFunction = addTwoInts     // 👈switched the multiply function to an addition function
+newestMultipleFunction(9,5)
+
+
+func printMathResult (addTwoInts: (Int,Int) -> Int, a:Int, b:Int) { // a function w/in a function. Notice the function type
+    println("Result: \(addTwoInts(a, b))")
+}
+
+printMathResult(addTwoInts, 8, 8)       // notice the structure in which i'm calling this function
+printMathResult(addTwoInts, 9, 0)
+printMathResult(newMultiplyFunction, 8, 9)
+
+// 👆 “The role of printMathResult is to print the result of a call to a math function of an appropriate type.” Notice that, within printMathResult, i can call in whatever function i want as long as it fits the function type defined in printMathResult's definition. All that matters is that the function that i call in is of the correct type.
+
+
+
+
+func stepForward (input:Int) -> Int {
+    return input + 1
+}
+
+func stepBackward (input:Int) -> Int {
+    return input - 1
+}
+
+stepBackward(9)
+stepForward(9)
+
+
+
+func chooseStepFunction (backwards:Bool) -> Int -> Int{ // the first Int is a function type, which will then return an Int
+
+    return backwards ? stepBackward : stepForward   // notice question mark and colon between the two functions.
+
+    // 👆the above line can also be written as:
+        // if backwards {
+        // return stepBackward
+        // } else {
+        // return stepForward
+        // }
+}
+
+
+chooseStepFunction(true)(4)
+var currentValue = 3
+
+let moveNearerToZero = chooseStepFunction(currentValue > 0)(currentValue /* this can be any number or value*/)
+
+// in the above line, because the boolean returns a true or false, it will determint whether stepBackward or stepForward gets used. As defined in the return structure when chooseStepFunction was created, it'll use stepBackward if it equates to true, and stepForward if false.
+
+
+
+//  return backwards ? stepBackward : stepForward
+
+    // essentially, the line above says return backwards based on a boolean which is visible via the question mark. If true, stepBackward will be used, else, stepForward function will be used.
+
+
+
+
+println("Counting to zero....")
+while currentValue != 0 {
+    println("\(currentValue)...")
+    currentValue = chooseStepFunction(currentValue > 0)(currentValue) // used the line instead of moveNearerToZero
+ }
+println("zero!")
+// 👆in the above, when trying to use the moveNearerToZero, it continuously loops. Hopefully will find out why later
+
+
+
+
+
+
+
+
+
+
+
+// NESTED FUNCTIONS
+
+    // Nested Functions, as apposed to Global Functions, are functions that are defined inside the body of another function.
+    // Nested Functions are hidden from the "outside world" by default, but can still be used by their enclosing function.
+    // an enlcosing function can also return a nested function to be used in another function
+
+// 👇 we'll rewrite chooseStepFunction to use and return nested functions.
+
+
+
+func chooseStepFunction2 (backwards2:Bool) -> Int -> Int {
+    func stepForward2 (input:Int) -> Int {
+        return input + 1
+    }
+    func stepBackward2 (input:Int) -> Int{
+        return input - 1
+    }
+    return backwards2 ? stepForward2 : stepBackward2
+}
+
+var currentValue2 = -4
+
+// switch currentValue2:
+// let moveNearerToZero2 = chooseStepFunction2(true)()
+
+//while currentValue2 != 0 {
+//    println("\(currentValue2)...")
+//    // currentValue2 = chooseStepFunction2(currentValue2>0)
+// }
+
+
+
+
+
+
+
+// When talking about the "Scope" of a function in Swift, it simply means 'where that fuction can be called'. Is it global or nested(local)!?
+
+
+
+
+
+
+
+
+// MAKE A FUNCTION THAT WILL TAKE IN A STRING VALUE, AND RETURN THE STRING VALUE IN ALL CAPS
+
+//func makeAllCaps (makeThisStringAllCaps:String) {
+//    println("\(makeThisStringAllCaps)")
+//}
+//
+//makeAllCaps("Let's make this string all caps!")
+//
+//var uppCase: () = makeAllCaps("Let's make this string all caps!")
+//

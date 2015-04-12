@@ -1,1 +1,150 @@
 
+
+/*
+
+var str = "Hello World!"
+str
+
+var strVar:String = "Something"
+
+var someMessage:String = "String"
+
+someMessage = "Hello"
+
+*/
+
+
+
+var number = 6
+
+// var tagniShopping = ["]
+
+
+var numberTwo = 8
+var wordTwo = "word"
+// var SecondWord
+
+
+6 == 3
+
+number == 6
+
+
+
+// (var word = hello) doesn't work because without the quotation marks on the hello, it thinks that the word hello is a variable. Since the variable hello does not exist, this will compile an error: use of unresolved identifier ‘hello’
+
+// Adding quotes to the hello tells the compiler that this is a type: String
+
+var word = "Hello"
+
+word + " " + "World!"  // you can add a variable and a type String (notice the quotation marks) on World
+                       // also concactenated the space in between the words
+
+var newWord = word + " " + "World!"         // notice what was added together here!
+
+
+let pi = 3.141
+
+newWord
+number.advancedBy(9)   // type in any number to advance by.,
+
+
+
+                       // By using the (number.), the '.' allows you to go into the "box" for number and grab some properties/tools. Since number is an type Int, it will only grab properties for that implied type.
+
+
+
+
+number                 // notice that number == number still equal to 6! -- 'number.advancedBy(9)' applies to only statement above line
+
+
+number == number
+
+                    // by adding in '//', it turns the text green to let the compiler know that this is a comment and that it should be ignore when compiling the code
+
+
+
+
+newWord.isEmpty     // so far, this method only works for type: String values. This is a bool 👉
+
+
+
+var newNumber = number.advancedBy(21)       // Different ways to achieve the same result
+                                            // '.advanceBy' is a function. i just used a FUNCTION!!!!!!
+                                            // Functions are DO-ers. They make thing happen. The parenthesies set things into motion
+                                            // Functions == Methods (true). They are synonymous but different. Functions so far are used with variables and constants
+
+
+
+
+// http://goo.gl/b6B42o - Difference between function and methods
+
+// Functions are self-contained chunks of code that perform a specific task. You give a function a name that identifies what it does, and this name is used to “call” the function to perform its task when needed.
+
+// Methods are functions that are associated with a particular type. Classes, structures, and enumerations can all define instance methods, which encapsulate specific tasks and functionality for working with an instance of a given type.
+
+
+
+
+newWord
+newNumber
+
+
+let newPie87 = pi + 3
+pi                                          // Since pi is a type: Double, it provides me with the functions as such
+                // pi.                      // check out the different functions that it provides
+
+
+
+countElements(newWord)                      // counted the number of characters in newWord
+newWord
+// countElements(newPie87)                  // notice this doesn't work with Type: doubles
+
+
+var distance = 0
+
+func run() {
+ distance = distance + distance.advancedBy(5)
+
+// could have also been written as such
+
+// distance += distance.advancedBy(5)                               // '+=' means distance + the distance advanced by 5
+}                                                                   // create a function named run
+
+
+distance
+
+run()
+run()
+run()
+
+distance        // 👆 notice the change in distance's value after i ran the function 3 times
+
+
+5 + 5
+5 - 5
+5 / 5
+5 * 5
+10 % 3            // The remainder operator (a % b) works out how many multiples of b will fit inside a and returns the value that is left over (known as the remainder).”
+
+10 % 2.1
+
+                                                            // a library is a library of prewritten functions that you can get
+
+
+
+
+// sqrt(5.0)                           // i believe i first had to import the Cocoa library in order for this to take place
+
+// var sqrtFive = sqrt(5.0)
+
+// sqrtFive != 5
+
+
+// sqrtFive += 5   adds 5 to the value of the variable then returns the final output
+
+// sqrtFive -= 5   subtracts 5 from the value of the variable then returns the final output
+
+// sqrtFive == 5   boolean that will return true or false if the condition holds
+
+// sqrtFive != 5   boolean that will return true or false if the condition holds..

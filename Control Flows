@@ -1,0 +1,375 @@
+
+
+
+// Control Flows
+
+// use 'for and while' loops to perform a task multiple times
+// use 'if and switch' statements to execute different branches of code based on certain conditions
+// use statements such as 'break and continue' to transfer the flow of execution to another point in your code
+
+
+// Swift adds a for-in loop that makes it easy to iterate over arrays, dictionaries, ranges, strings, and other sequences
+
+
+// Swift’s switch statement is also considerably more powerful than it's C counterpart. Cases can match many different types of pattern, including range matches, tuples, and casts to a specific type.
+
+
+
+
+
+
+// A 'for' loop performs a set of statements a certain number of times. Swift provides two kinds of for loop:
+
+    // ◎ - for-in performs a set of statements for each item in a range, sequence, collection, or progression. Such as ranges of numbers, items in an array, or characters in a string.
+
+    // ◎ - for-condition-increment performs a set of statements until a specific condition is met, typically by incrementing a counter each time the loop ends
+
+
+
+let numberedArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+numberedArray.count
+
+for index in numberedArray{
+    println("Number \(index) in the Numbered Array container.")
+}
+
+for index in 1...5{
+    println("This is the number \(index) number in this range.")
+}
+
+for index in 1..<5{
+    println("\(index) times 5 is \(index * 5).")
+}
+
+
+// in the above lines, index is a constant whose value is automatically set at the start of each iteration of the loop.
+
+// for-in loops work with Arrays, Dictionaries, and Ranges.
+
+
+let base = 3
+let power = 10
+var answer = 1
+for _ in 1...power {               // notice the use of the underline here. Used since we don't need each value in the range
+    answer *= base
+}
+println("\(base) to the power of \(power) is \(answer)")
+
+
+    // use line above in case you don't need each individual output from a range. The underscore character _ (used in place of a loop variable) causes the individual values to be ignored and does not provide access to the current value during each iteration of the loop.
+
+
+numberedArray // a variable array that i created earlier
+
+for names in numberedArray{
+    println("Hello \(names)!")
+}
+
+for number in numberedArray{
+    println("Whattup number \(number)!!! What it do fool!!!")
+}
+
+
+let namesArray = ["Niagara", "Whisper", "Rayllan", "Sperlina"]
+
+for name in namesArray{
+    println("Hello \(name). What a wonderful name you have! D'ou est il!?")
+}
+
+
+
+// You can also iterate over a dictionary to access its key-value pairs. Each item in the dictionary is returned as a (key, value) tuple when the dictionary is iterated, and you can decompose the (key, value) tuple’s members as explicitly named constants for use within in the body of the for-in loop.
+
+
+
+let numberOfLegs = ["Spiders" : 08, "Dogs" : 04, "Old-Man" : 03, "Adult" : 02]
+
+for (speciesName,numberOfLegss) in numberOfLegs{           // 👈 i completely came up with the names of the key and variable
+    println("Ever come across a \(speciesName)!? They are amazing in the sense that they all have \(numberOfLegss) legs.")
+}
+
+
+// above example is quite comicle if you switch the name variables
+
+// In addition to arrays and dictionaries, you can also use the for-in loop to iterate over the Character values in a string
+
+for character in "Hello"{
+println("\(character)")
+}
+
+
+
+
+
+
+
+// for initialization; condition; increment {
+//    statements
+// }
+
+// 👆 The loop is executed as follows 👇:
+
+/*
+
+//  1) When the loop is first entered, the initialization expression is evaluated once, to set up any constants or variables that are needed for the loop.
+
+//  2) The condition expression is evaluated. If it evaluates to false, the loop ends, and code execution continues after the for loop’s closing brace (}). If the expression evaluates to true, code execution continues by executing the statements inside the braces.
+
+//  3) After all statements are executed, the increment expression is evaluated. It might increase or decrease the value of a counter, or set one of the initialized variables to a new value based on the outcome of the statements. After the increment expression has been evaluated, execution returns to step 2, and the condition expression is evaluated again.
+
+*/
+
+for var index = 0; index < 3; ++index {             // notice that this is zero indexed.
+    println("index is \(index)")
+}
+
+
+
+
+// Constants and variables declared within the initialization expression (such as var index = 0) are only valid within the scope of the for loop itself. To retrieve the final value of index after the loop ends, you must declare index before the loop’s scope begins:
+
+
+// A while loop performs a set of statements until a condition becomes false. Swift provides two kinds of while loops:
+
+    // ◎ - 'while' evaluates its condition at the start of each pass through the loop. Checks conditional, then runs code
+    // ◎ - 'do-while' evaluates its condition at the end of each pass through the loop. Runs code, then checks conditional
+
+
+// A while loop starts by evaluating a single condition. If the condition is true, a set of statements is repeated until the condition becomes false.
+
+            // while condition {
+            //     statements
+            // }
+
+
+
+/*
+numberedArray.count
+
+while numberedArray.count <= 10 {
+    println("We in here!")
+};else{
+    println("Stop here!")
+}
+*/
+
+
+
+let finalSquare = 25
+var board = [Int] (count: finalSquare + 1, repeatedValue:0)
+board.count
+
+board[03] = +08
+board[06] = +11
+board[09] = +09
+board[10] = +02
+board[14] = -10
+board[19] = -11
+board[22] = -02
+board[24] = -08
+
+board
+
+var square = 0
+var diceRoll = 0
+
+while square < finalSquare {
+    // roll the dice
+
+    if ++diceRoll == 7 { diceRoll + 1 }
+
+    // move by the rolled dice amount
+
+    square += diceRoll
+
+    if square < board.count {
+        // if we're still on the board, move up or down for a snake or a ladder
+
+        square += board[square]
+    }
+}
+
+println("Game Over!")
+
+
+                // 👆the loop is executed until a particular condition is satisfied. In this case, until finalSquare is reached.
+
+
+
+
+// the do-while loop, performs a single pass through the loop block first, before considering the loop’s condition. It then continues to repeat the loop until the condition is false.
+
+
+            // do {
+            // statements
+            // } while condition
+
+
+
+
+
+// Using the same example as above, we'll rewrite it using a do-while loop
+
+let finalSquare2 = 25
+var board2 = [Int] (count: finalSquare + 1, repeatedValue:0)
+board2.count
+
+board2[03] = +08
+board2[06] = +11
+board2[09] = +09
+board2[10] = +02
+board2[14] = -10
+board2[19] = -11
+board2[22] = -02
+board2[24] = -08
+
+board2
+
+var square2 = 0
+var diceRoll2 = 0
+
+
+do {
+    // move up or down for a snake or ladder
+    square2 += board2[square2]
+    // roll the dice
+    if ++diceRoll2 == 7 { diceRoll2 = 1 }
+    // let diceRoll = Int(arc4random_uniform(7))                    // 👈 be careful with this line, crashed my code
+    // move by the rolled amount
+    square2 += diceRoll2
+} while square2 < finalSquare2
+println("Game over!")
+
+// 👆 does the statement while the condition is met
+
+
+
+                // - its the number of elements in the array that are immutable
+
+
+
+
+                                        // ****                        ****
+                                        // **** CONDITIONAL STATEMENTS ****
+                                        // ****                        ****
+
+
+// in its simplest form, the if statement executes a set of statements only if that condition is true
+
+var temperatureInFahrenheit = 30
+if temperatureInFahrenheit <= 32 {
+    println("It's very cold. Consider wearing a scarf.")
+}else if temperatureInFahrenheit == 30 {
+    println("Water freezes here!")
+}else if temperatureInFahrenheit >= 50 {
+    println ("It may not be that cold outside, consider a sweater!")
+}else {
+    println("This water is freezing!")
+}
+
+
+// the temeratureInFahrenheit can be changed so that it is neither too cold nor too warm to trigger the if or else if conditions. If so, no message is printed.
+
+
+
+
+
+// A switch statement considers a value and compares it against several possible matching patterns. It then executes an appropriate block of code, based on the first pattern that matches successfully. A switch statement provides an alternative to the if statement for responding to multiple potential states.
+
+
+// The switch statement determines which branch should be selected. This is known as switching on the value that is being considered.
+
+
+/*
+switch some value to consider {
+    case value 1:
+    respond to value 1
+
+    case value 2,                                   // 👈 notice comma
+    value 3:
+    respond to value 2 or 3
+
+    default:
+    otherwise, do something else
+}
+*/
+
+
+// switch statements must be exhaustive, thus default statement must always be included
+
+
+
+
+let unoCharacter: Character = "p"
+
+
+switch unoCharacter {
+    case "a", "e", "i", "o", "u", "y":
+    println("This character: \(unoCharacter) is a vowel")       // no function or method to make letter uppercase
+    case "b", "c", "d", "f",
+    "g", "h", "j", "k", "l", "m", "n", "p",
+    "q", "r", "s", "t", "v", "w", "x", "y", "z":            // notice how a single switch case can be written across multiple lines and seperated by commas
+    println("This character: \(unoCharacter) is a constanant!")
+    default:
+    println("Entered character: '\(unoCharacter)' is not a valid character!")
+}
+
+// example above defaults to a void character because we only really care about case a and case b. Switches must be exhaustive.
+
+
+// switch statements in Swift do not fallthrough the bottom of each case and into the next one by default. First come, first served.
+
+// The body of each case must contain at least one executable statement.
+
+
+
+
+let dosCharacter: Character = "a"
+
+switch dosCharacter {
+    case "a":
+        println("This is the lower case letter 'a'")      // Get an error message if this line is removed because each case must contain at least one executable statement. This approach avoids accidental fallthrough from one case to another, and makes for safer code that is clearer in its intent.
+
+    case "A":
+    println("This is the upper case letter 'A'")
+default:
+    println("Nothing to see here folks...")
+}
+
+
+
+                // ****                ****
+                // **** RANGE MATCHING ****
+                // ****                ****
+
+
+let count = 3_000_000_000_000
+let countedStars = "stars in the Milky Way"
+var naturalCount:String = "No counted stars yet..."
+
+//  Command + '/' to add // in front of selected lines of code 😁 Accidentally landed on this!!!!!
+
+switch count {
+case 0:
+    naturalCount = "no"
+
+case 1...3:
+    naturalCount = "a few"
+
+case 4...9:
+    naturalCount = "several"                // in this scenario, we're setting the output depending on the case matched
+
+case 10...99:
+    naturalCount = "tens of"
+
+case 100-999:
+    naturalCount = "hundreds of"
+
+case 1000-999_999:
+    naturalCount = "thousands of"
+
+default:
+    naturalCount = "millions and milliions of"
+}
+
+println("There are \(naturalCount) \(countedStars)")

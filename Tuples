@@ -1,0 +1,149 @@
+
+
+
+
+
+// “Tuples group multiple values into a single compound value.”
+
+let http404Error = (404, "Webpage not Found", 40.44544344355, false, "Will this work")          // 👈 This is a tuple
+
+http404Error
+
+http404Error.0                          // use .# to access indivitual elements of http404Error, which is a tuple
+http404Error.1
+http404Error.2
+http404Error.3
+http404Error.4
+
+
+// 👆 notice how to access the value of a tuple, it's .# instead of [#]
+
+
+let (aAt, bAt, cAt, dAt, fAt) = http404Error
+
+aAt
+
+
+
+let http200Error = (codeOne: 200, description: "d'accord")              // 👈 in this tuple, i named the indivitual elements while defining the tuple. Which i did not do when defining the very first tuple
+
+// http200Error.                    // because i named the elements during the defining stage, the '.' returns names instead of numbers for each element.  I can use the element names to access the values of those elements.
+
+
+
+let possibleNumber = "Hello"
+let newPossibilities = possibleNumber.toInt()
+
+// newPossibilities!       // '!' tells compiler, "i know newPossibilities has a value. Use it!" (known as forced unwrapping). Since this value is an optional and has no value though, this will return a runtime error
+
+
+newPossibilities
+
+
+http200Error.codeOne
+
+// 👆 values in a tuple can be of any type and don't have match
+
+
+
+if let newPossibilities2 = newPossibilities{                        // "if let" could have been written as "if var"
+    println("True")
+}else{
+    println("That's wassup")
+}
+
+
+
+
+// 👆 Optional Binding is used to find out whether an optional contains a value, and if so, to make that value available as a temporary constant or variable”
+
+
+
+
+
+
+// let surverAnswer:String?         notice how "let" will not work
+var serverAnswer:String?            // String? sets this variable to be an optional
+
+// Unlike in Objective-C, nil is not a pointer—it is the absence of a value of a certain type. Optionals of any type can be set to nil, not just object types.
+
+var surveyAnswer:String! = "You good!?"     // String! sets this variable to ALWAYS have a value. Called an "implicitly unwrapped optionals"
+
+var optionalStr:String! = ""
+optionalStr
+
+if (optionalStr != nil) {
+    println(optionalStr)
+}
+
+
+serverAnswer
+surveyAnswer
+
+
+
+
+
+
+
+// #####################################=================================================###################################
+// #####################################=================================================###################################
+// #####################################=================================================###################################
+
+// #####################################=================================================###################################
+// #####################################=================================================###################################
+// #####################################=================================================###################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #####################################=================================================###################################
+// #####################################=================================================###################################
+// #####################################=================================================###################################
+
+
+
+
+
+
+
+
+
+// ****         ****
+// **** TUPLES  ****
+// ****         ****
+
+
+
+let somePoint = (0,0)
+switch somePoint{
+case (0,0):
+    println("(0,0) is at the origin")
+
+case (_,0):
+    println("(\(somePoint.0)) is on the X-Axis")
+
+case (0,_):
+    println("(\(somePoint.1)) is on the Y-Axis")
+
+case (-2...2, -2...2):
+    println("(\(somePoint.0),\(somePoint.1)) is inside the box")
+
+default:
+ println("(\(somePoint.0),\(somePoint.1)) is outside of the box")
+
+}

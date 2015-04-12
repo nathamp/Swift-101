@@ -1,0 +1,209 @@
+
+
+// What is a dictionary? A dictionary is a container that stores multiple values of the same type. Sounds just like an array.
+
+// What's the difference between a dictionary and an array?  Items in a dictionary don't have a specified order
+
+// Why would you use a dictionary instead of an Array!? You use a dictionary when you want to look up items in that container based on their unique identifiers.
+
+
+
+   var newDict:Dictionary<String, String> = ["Hey" : "Howdie"]          // notice the : between the two values in the dictionary
+
+// var impDict = ["Hey": "Howdie"]                                  Same way to write line above without having to make it explicit
+
+
+
+
+var statesToWork:Dictionary = [0: "Texas", 1:"California", 2:"Remotely"]
+var impDict2 = [0: "Ou", 1:"Est", 2:"Tu"]       // per above line, no need to make the dictionary explicit
+
+
+
+
+
+statesToWork[3] = "Cameroon"                                // Adds new value to the statesToWork dictionary
+
+statesToWork
+
+
+
+statesToWork.updateValue("Cameroun", forKey: 3)     // this 'method' works backwards. Type in new value first, then the Key
+
+
+statesToWork
+
+
+
+
+let citiesToWork = statesToWork.updateValue("South Beach", forKey: 4)               // notice how this returns nil!
+                                                                                    // this statement returns nil because in the last instance of the dictionary .statesToWork, there wasn't a key value for the keys that were just add.
+statesToWork
+
+
+citiesToWork
+
+                                                                // try to do the next example using the                     citiesToWork and you'll slowly see why that was some bullshit!
+
+
+
+if let partyCity = statesToWork.updateValue("Cameroun", forKey: 3){
+    println("Found You!")
+}else {
+    println("Not you..")
+}
+
+
+                                                                // using citiesToWork in the last example doesn't work because cities to work was created with a nil value. the citiesToWork dictionary didn't have the method for .updateValue thus it was impossible for the if statement to work
+
+
+
+if (citiesToWork != nil){                                                                        // if --- { } else { }
+    println("Found You!!!")
+}else{
+    println("Not You...")
+}
+
+// citiesToWork[3] = nil
+
+// citiesToWork
+
+
+
+
+
+// statesToWork[3] = nil                                       // use this to remove a combination from the dictionary. All you have to do is is provide it with the key in the square brackets and the value that you'd like to equate it to
+
+// statesToWork.removeValueForKey(3)                               // same function as the above statement
+
+                                                                // Let's have some fun!!!
+
+if let removedValue = statesToWork.removeValueForKey(3){
+    println("We got rid of \(removedValue)")
+}else{
+    println("Forget (removedValue)")
+}
+
+// ".... \(RemovedValue)" only works once in the above statement
+statesToWork
+
+
+
+// statesToWork = [:]                        // empties the dictionary
+statesToWork
+
+Array(statesToWork.keys)
+Array(statesToWork.values)
+
+
+
+// for performance reasons, when given the option to use immututable vs mutable, go with the former
+
+
+
+var x = 0.0
+
+var a = "Alex", b = "Bill", c = "Charles"
+
+a
+b
+c
+
+println("I don't like the look of it \(statesToWork)")          // This is called String Interpolation. Swift allows you to use the variable or constant as a placeholder within the string. It will replace the con/variable withing the string with the appropriate values
+
+
+
+                    // Look into using nested comments
+
+                    /* This is a comment /* within a comment*/ within a comment... */
+
+                    // Hopefully that made sense... 😊
+
+
+
+
+#####################################=================================================###################################
+
+
+
+
+
+
+
+
+
+// DICTIONARY - is a container that stores multiple values of the same type. Each value is associated with a unique key. Unlike Arrays, items in dictionaries do not have a specified order.
+
+// Keep in mind that a dictionay is not an ordered list. So values in a dictionary can be returned in any order.
+
+var emptDic = ["":""]           // Dictionary [keyType:valueType]   keyType must be hashable—that is, it must provide a way to make itself uniquely representable. Swift’s basic types (such as String, Int, Double, and Bool) are hashable by default
+emptDic
+
+var newDic = [0:"Zero", 1:"One", 2:"Two"]           // 👈 a Dictionary Literal. Within the literal is a "key-value pair" - a combination of a key and a value.
+
+println("New Dic has \(newDic.count) values in it")     // check number of values in a dictionary using the read-only count property
+
+
+newDic [3] = "Three"            // Added a "key-value pair" using subscript syntax
+newDic [3] = "Threee"           // changed the value of a key using subscript syntax
+
+newDic.updateValue("Four", forKey: 4)  // updates the value and returns the old value as a Type: String? in case there wasn't a value before. Which in this case there wasn't. If this were to change the '3' key, it wouldn't return nil
+
+// 👆 The .updateValue above is called a method
+
+newDic
+
+if let newDicValue = newDic [3]{                    // returns an optional value type in case key has no value
+    println("Value is \(newDicValue)")
+}else{
+    println("Value not in dictionary")
+}
+
+if let newDicValue2 = newDic.updateValue("Test Value", forKey: 3) {     // returns old optional string? value before updating it to new value
+    println("Value is \(newDicValue2)")
+}else{
+    println("Value is not in dictionary")
+}
+
+
+newDic [3] = nil                // removes a value using subscript syntax
+newDic [3] = "Threee"
+newDic.removeValueForKey(4)     // method removes the key-value pair if it exists and returns the removed value, or returns nil if no value existed
+
+
+if let newDicValue3 = newDic.removeValueForKey(4) {     // returns this because key 4 was removed in above line
+    println("Value was \(newDicValue3)")
+}else{
+    println("Value is not in dictionary")
+}
+
+newDic
+
+
+for (newDicValue, newDicValue2) in newDic {
+    println("\(newDicValue) : \(newDicValue2)")
+}
+
+for newDicValue in newDic.values {
+    println("Code \(newDicValue)")
+}
+
+
+// var testCodes = Array[newDic.keys]
+
+// Brush up on the latter sections of Dictionary Literals
+
+
+
+
+
+
+/*
+
+// Notes from Youtube video (http://goo.gl/Nd5oz7) on Arrays and Dictionaries.
+
+list.append     .append is a method. Methods allow you to alter or change something about the object 'list' that you're talking about. Essentially like going into "list's box" and grabbing different methods.
+
+Technically, arrays can be mutated if they're created as a constant. There's a way that i'll find out later 😁
+
+*/

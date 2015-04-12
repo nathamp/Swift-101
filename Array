@@ -1,0 +1,142 @@
+
+
+
+var simpleArray = ["Ace Spade", "Ace Club", "Ace Diamonds", "Ace Hearts"]
+var simplerArray = ["SpAce Spade", "SpAce Club", "SpAce Diamonds", "SpAce Hearts"]
+
+simpleArray[0]
+// simpleArray += "Change"                     // Changed this 8/25/2014. As of xCode 6.5, this no longer works
+simpleArray += ["Change"]
+// simpleArray.append("Change")                 Use the method in this line or on line above
+simpleArray
+
+
+// 👆 this will compile an error because Swift was changed so that adding to an array no longer works in this manor. Now, you must either use the .append 'method' or add square brackets to "change" in order for it to work. If there's an array to the left of the +=, there must also be an array to the right of it in order for it to compile.
+
+
+
+simpleArray[0] = "Lucky Card"
+
+simplerArray.append("Change 2")                                     // adds value to the end of the array
+
+
+simplerArray[4] = "Change 4"
+
+// simpleArray
+
+// simpleArray.insert("Miami 2015", atIndex: 5)                        // gives you option to input a new element anywhere in the array
+
+simpleArray
+
+
+
+for Word in simpleArray {
+    println(Word)
+}
+
+// simpleArray.removeAtIndex(5)                                // gives you option to remove a value anywhere in the array
+// simpleArray.removeAtIndex(4)
+simpleArray
+
+simpleArray[1..<4]                                             // lists items in the array either inclusively or exclusively
+simpleArray.getMirror()
+
+simpleArray.append("New Sh!t")
+
+simpleArray.removeLast()                                        // removes element from the last slot
+
+
+simpleArray + simplerArray                             // Arrays can be added together. Elements will be combined in order
+
+                                        // 1..<5   this will count 1-4, exclusive range because it excludes 5
+                                        // 1...5   this will count 1-5, inclusive range because it includes 5
+
+
+
+
+                                            // What is an array? An array is a way to store multiple values/elements. So far, seems as if values must be of the same type.
+
+
+
+
+var byFiveArray = [5,10,15,20]
+byFiveArray = []                        // empties the array
+byFiveArray
+
+
+
+var newDouble = [Double](count:3, repeatedValue:6)
+var newTriple   = [String] (count:15, repeatedValue: "Hello")
+var newDouble2 = [Double] (count:5, repeatedValue:3)        // What is the difference when the explicit type is taken out
+
+newDouble
+newDouble2              // Notice how this changes when the explicit Type: Double is removed above...
+newTriple
+
+newTriple [0] = "why"
+newTriple
+newTriple [2...14] = []         // emptied part of the array
+newTriple
+
+
+
+
+
+#####################################=================================================###################################
+
+
+
+
+
+
+
+// ARRAYS - stores multiple values of the same type in an ordered list
+
+
+var shoppingList = ["Pizza Dough", "Pasta Sauce", "Cheese", "Sausage", "Pepperoni"]     // 👈 an Array Literal
+shoppingList
+shoppingList[1]                     // 👈 Retrieve a value from the array by using subscript syntax. Subscript syntax can be used for a multitude of things..
+
+// shoppingList[0...4] = ["one", "two", "three", "four"]       // Notice how many items were taken out 👇
+
+
+
+
+
+println("Shopping list contains \(shoppingList.count) items")           // Uses the .count property
+
+shoppingList += ["Bananas", "Ice Cream", "Water"]
+
+shoppingList.getMirror()                // First item in the array has an index of [0]. Arrays are alyways '0-indexed'
+
+// shoppingList[15] = "Truth"          // Will not compile because there is no 15th index. Technically 16th place...
+
+shoppingList.count
+// shoppingList.insert("oneAgain", atIndex: 1)         // Remember that Arrays are '0-indexed'
+// shoppingList.removeAtIndex(1)
+// shoppingList.removeLast()
+shoppingList
+
+let newShoppingList = shoppingList.removeLast()
+shoppingList.count
+newShoppingList
+// var testVar = shoppingList.getMirror()
+// 👆 the last item in the array has just been removed. shoppingList now contains 7 items, and no water. The newShoppintList constant is now equal to the removed "Water" string
+
+
+var someInt = [Int]()           // create empty arrays of a certain type. Can be any type..
+someInt.count
+someInt
+
+// as of Jul 15, 2014, let array is completely immutable, and a var array is completely mutable
+
+
+
+// 👇 To create an array of values with the same count
+var fourArray = Array(count: 3, repeatedValue: 4)
+fourArray
+var testArray2 = fourArray + fourArray           // new array's type is inferred
+
+
+
+// What would be a real life app scenario for using an array?

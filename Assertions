@@ -1,0 +1,11 @@
+
+    // “An assertion is a runtime check that a logical(bool) condition definitely evaluates to true. Literally put, an assertion “asserts” that a condition is true.”
+
+// “trigger an assertion in your code to end code execution and to provide an opportunity to debug the cause of the absent or invalid value.”
+
+// “You use an assertion to make sure that an essential condition is satisfied before executing any further code. ”        “If the condition evaluates to true, code execution continues as usual; if the condition evaluates to false, code execution ends, and your app is terminated.”
+
+
+let alexAge = 27
+
+assert(alexAge <= 35, "You're still young!!!")
