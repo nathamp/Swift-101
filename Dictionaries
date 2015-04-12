@@ -1,3 +1,15 @@
+// Dictionary Cheat Sheet
+var occupations = [
+    "Malcolm": "Captain",
+    "kaylee": "Mechanic"
+]
+occupations["Jayne"] = "Public Relations"
+var emptyDictionary = Dictionary<String, Float>()
+
+
+
+
+
 
 
 // What is a dictionary? A dictionary is a container that stores multiple values of the same type. Sounds just like an array.
