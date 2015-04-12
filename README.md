@@ -5,6 +5,9 @@ Playing around in Playground. Nothing fancy to see here...
 JUST TESTING TO SEE IF THIS CHANGE WILL BE ADDED!!!! HOPEFULLY IT DOES!!
 ADDITIONALLY, I CAN ADD LINES OF CODE FROM THE WEBSITE AS WELL! NOW TO TEST TO SEE HOW GITHUB ON MAC WILL DISPLAY EVERYTHING IN ONE WINDOW
 
+UPDATE DONE FROM ATOM!!! NICE TEXT EDITOR. I THINK I WILL HOWEVER MAYBE SWITCH THE THEME UP
+
+
 
 // Playground - noun: a place where people can play
 
@@ -38,7 +41,7 @@ answer
 if answer > 20 {
     println("Yes it is!")
 }else{
-    
+
 if answer < 20{
     println("No it's not!")
 
@@ -55,16 +58,16 @@ answer
 switch answer {
 case answer > 15:
     println("More than 15!!")
-    
+
 case answer < 15:
     println("Less than 15!")
-    
+
 case answer = 26:
     println("On the mulah")
-    
+
 default:
     println("Yup")
-    
+
 }
 *
 *              /* */
@@ -207,7 +210,7 @@ var distance = 0
 
 func run() {
  distance = distance + distance.advancedBy(5)
-    
+
 // could have also been written as such
 
 // distance += distance.advancedBy(5)                               // '+=' means distance + the distance advanced by 5
@@ -358,7 +361,7 @@ newTriple
 
 
 
-// What is a dictionary? A dictionary is a container that stores multiple values of the same type. Sounds just like an array. 
+// What is a dictionary? A dictionary is a container that stores multiple values of the same type. Sounds just like an array.
 
 // What's the difference between a dictionary and an array?  Items in a dictionary don't have a specified order
 
@@ -441,7 +444,7 @@ if let removedValue = statesToWork.removeValueForKey(3){
 }else{
     println("Forget (removedValue)")
 }
- 
+
 // ".... \(RemovedValue)" only works once in the above statement
 statesToWork
 
@@ -585,7 +588,7 @@ http404Error.4
 
 // 👆 notice how to access the value of a tuple, it's .# instead of [#]
 
-    
+
 let (aAt, bAt, cAt, dAt, fAt) = http404Error
 
 aAt
@@ -659,7 +662,7 @@ surveyAnswer
 
     // “An assertion is a runtime check that a logical(bool) condition definitely evaluates to true. Literally put, an assertion “asserts” that a condition is true.”
 
-// “trigger an assertion in your code to end code execution and to provide an opportunity to debug the cause of the absent or invalid value.” 
+// “trigger an assertion in your code to end code execution and to provide an opportunity to debug the cause of the absent or invalid value.”
 
 // “You use an assertion to make sure that an essential condition is satisfied before executing any further code. ”        “If the condition evaluates to true, code execution continues as usual; if the condition evaluates to false, code execution ends, and your app is terminated.”
 
@@ -857,7 +860,7 @@ var thirdEye = 0
 for scene in codingPath {
     if scene.hasPrefix("Third,") {              // use of the .hasPrefix method
         ++thirdEye
-    
+
 }
 }
 println("There are \(thirdEye) parts to your third👀Eye")
@@ -950,7 +953,7 @@ var testArray2 = fourArray + fourArray           // new array's type is inferred
 
 
 
-// DICTIONARY - is a container that stores multiple values of the same type. Each value is associated with a unique key. Unlike Arrays, items in dictionaries do not have a specified order. 
+// DICTIONARY - is a container that stores multiple values of the same type. Each value is associated with a unique key. Unlike Arrays, items in dictionaries do not have a specified order.
 
 // Keep in mind that a dictionay is not an ordered list. So values in a dictionary can be returned in any order.
 
@@ -984,7 +987,7 @@ if let newDicValue2 = newDic.updateValue("Test Value", forKey: 3) {     // retur
 }
 
 
-newDic [3] = nil                // removes a value using subscript syntax 
+newDic [3] = nil                // removes a value using subscript syntax
 newDic [3] = "Threee"
 newDic.removeValueForKey(4)     // method removes the key-value pair if it exists and returns the removed value, or returns nil if no value existed
 
@@ -1022,7 +1025,7 @@ for newDicValue in newDic.values {
 
 list.append     .append is a method. Methods allow you to alter or change something about the object 'list' that you're talking about. Essentially like going into "list's box" and grabbing different methods.
 
-Technically, arrays can be mutated if they're created as a constant. There's a way that i'll find out later 😁 
+Technically, arrays can be mutated if they're created as a constant. There's a way that i'll find out later 😁
 
 */
 
@@ -1154,7 +1157,7 @@ println("\(character)")
 
 // 👆 The loop is executed as follows 👇:
 
-/* 
+/*
 
 //  1) When the loop is first entered, the initialization expression is evaluated once, to set up any constants or variables that are needed for the loop.
 
@@ -1220,16 +1223,16 @@ var diceRoll = 0
 
 while square < finalSquare {
     // roll the dice
-    
+
     if ++diceRoll == 7 { diceRoll + 1 }
-    
+
     // move by the rolled dice amount
-    
+
     square += diceRoll
-    
+
     if square < board.count {
         // if we're still on the board, move up or down for a snake or a ladder
-        
+
         square += board[square]
     }
 }
@@ -1313,7 +1316,7 @@ if temperatureInFahrenheit <= 32 {
 }
 
 
-// the temeratureInFahrenheit can be changed so that it is neither too cold nor too warm to trigger the if or else if conditions. If so, no message is printed. 
+// the temeratureInFahrenheit can be changed so that it is neither too cold nor too warm to trigger the if or else if conditions. If so, no message is printed.
 
 
 
@@ -1374,7 +1377,7 @@ let dosCharacter: Character = "a"
 switch dosCharacter {
     case "a":
         println("This is the lower case letter 'a'")      // Get an error message if this line is removed because each case must contain at least one executable statement. This approach avoids accidental fallthrough from one case to another, and makes for safer code that is clearer in its intent.
-        
+
     case "A":
     println("This is the upper case letter 'A'")
 default:
@@ -1397,22 +1400,22 @@ var naturalCount:String = "No counted stars yet..."
 switch count {
 case 0:
     naturalCount = "no"
-    
+
 case 1...3:
     naturalCount = "a few"
-    
+
 case 4...9:
     naturalCount = "several"                // in this scenario, we're setting the output depending on the case matched
-    
+
 case 10...99:
     naturalCount = "tens of"
-    
+
 case 100-999:
     naturalCount = "hundreds of"
-    
+
 case 1000-999_999:
     naturalCount = "thousands of"
-    
+
 default:
     naturalCount = "millions and milliions of"
 }
@@ -1438,19 +1441,19 @@ let somePoint = (0,0)
 switch somePoint{
 case (0,0):
     println("(0,0) is at the origin")
-    
+
 case (_,0):
     println("(\(somePoint.0)) is on the X-Axis")
-    
+
 case (0,_):
     println("(\(somePoint.1)) is on the Y-Axis")
-    
+
 case (-2...2, -2...2):
     println("(\(somePoint.0),\(somePoint.1)) is inside the box")
-    
+
 default:
  println("(\(somePoint.0),\(somePoint.1)) is outside of the box")
-    
+
 }
 
 
@@ -1466,17 +1469,17 @@ let anotherPoint = (2,3)                // 👈when matching, first matching cas
 switch anotherPoint {
 case (let x, 0):                // this could also be a var
     println("on the x-axis with an x value of: \(x)")
-    
+
 case (0, let y):
     println("on the y-axis with a y value of: \(y)")
-    
+
 case let (x,y):
     println("somewhere else at \(x), \(y)")
 
                     // 👈 notice that there is no default case. The last case matches every possible value thus none is needed
-    
+
 // 👆 Once the temporary constants are declared, they can be used within the case’s code block. Here, they are used as shorthand for printing the values with the println function.
-    
+
 }
 
 
@@ -1498,16 +1501,16 @@ case let (x,y):
 
 let yetAnotherPoint = (5,23)
 switch yetAnotherPoint {
-    
+
 case let (x,y) where x == y:
     println ("(\(x),\(y) is on the line x == y")
-    
+
 case let (x,y) where x == -y:
     println("(\(x),\(y) is on the line x == -y")
-    
+
 case let (x,y):                 // can this be changed to default case!? No
     println("(\(x),\(y) is just some arbitrary point")
-    
+
 }
 
 // 👆 checks to see if the values entered are on a line that goes diagonal on a graph. Notice again how there's no default case. When calling a default case, colon goes right after the default thus you're not able to value bind.
@@ -1624,10 +1627,10 @@ possibleIntergerNumber = 2
 
 case "3", "٣", "三", "๓":
     possibleIntergerNumber = 3
-    
+
 case "4", "٤", "四", "๔":
     possibleIntergerNumber = 4
-    
+
 default:
     break                // when i try to use continue, get error message that 'continue' is only allowed inside a loop
 }
@@ -1660,7 +1663,7 @@ switch integerToDescribe {
     case 2, 3, 5, 7, 11, 13, 17, 19:
         description += " a prime number and also"
         fallthrough     // allows the case statement above to "fall into" and append the statement below to the above statement. The fallthrough keyword doesn't check the case condition that it falls into, it simply causes code execution to move directly to the statements inside the next case (or default case👇) block
-        
+
     default:
         description += " an integer"
 
@@ -1701,10 +1704,10 @@ gameLoop: while square3 != finalSquare3 {
     switch square3 + diceRoll3 {
     case finalSquare3:                   // diceRoll will move us to the final square, so the game is over
             break gameLoop
-        
+
     case let newSquare where newSquare > finalSquare3:      // diceRoll will move us beyond the final square, so roll again
         continue gameLoop
-        
+
     default:        // this is a valid move, so find out its effect
         square3 += diceRoll3
         square3 += board3[square3]              // not sure exactly what this line means
@@ -1760,7 +1763,7 @@ println(sayHello("Alex", 27))
 println(sayHello ("Mary", 21))      // 👈 I just used my very first function!!!!! "Mary" is an argument. It is a string argument value in parentheses that's passed into the functions.
 println(sayHello ("John", 23))      // 👈 sayHello can be wrapped in the println() function because it returns a string value. Technically, this is a function within a function.
 
-// 👆 not sure why the lines above stopped working. Need to look this up later. Didn't work because i had added personAge: INT to the function's definition. Need to find out how to add this in later so that the code is able to compile. 
+// 👆 not sure why the lines above stopped working. Need to look this up later. Didn't work because i had added personAge: INT to the function's definition. Need to find out how to add this in later so that the code is able to compile.
 // update to the direct line above, i was able to resolve the issue by converting the personAge (Int type) to a string so that i could concactonate that with the string constant.
 
 
@@ -1824,7 +1827,7 @@ func printWithoutCounting(stringToPrint:String) {
 }
 
 printAndCount("How about lunch? Where would you like to go!?")
-printWithoutCounting("How about lunch? Where would you like to go!?")  // notice how for printWithoutCounting, the first function printAndCount, which is set to return an Int value, was called, yet the return value was ignored in the second function because in the definition of the second function, we configured it without a return. 
+printWithoutCounting("How about lunch? Where would you like to go!?")  // notice how for printWithoutCounting, the first function printAndCount, which is set to return an Int value, was called, yet the return value was ignored in the second function because in the definition of the second function, we configured it without a return.
 
 // Return values can be ignored, but a function that says it will return a value MUST always do so. Doing otherwise will result in a compile-time error.
 
@@ -1842,13 +1845,13 @@ func count(string: String) -> (vowels: Int, consonants: Int, others:Int) { // �
         switch String(count)/*.lowercaseString*/ {
         case "a", "e", "i", "o", "u":
             ++vowels
-            
+
         case "b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z":
             ++consonants
-            
+
         default:
             ++others
-            
+
         }
     }
     return (vowels, consonants, others)
@@ -1890,10 +1893,10 @@ func someFunction (parameterName: Int) {
 // FUNCTIONS WITH EXTERNAL PARAMETER NAME AND SHORTHAND EXTERNAL PARAMETER NAME
 
 func someFunction2 (externalParamaterName localParameterName: Int) {        // ALWAYS use external name to call function
-  
+
     // function body goes here, and can use localParameterName
     // to refer to the argument value for that parameter
-    
+
 }
 
 
@@ -1906,17 +1909,17 @@ func someFunction2 (externalParamaterName localParameterName: Int) {        // A
 
 func dogNameAndAge2 (/*insertDoggieName*/ #doggieName: String, /*insertDoggieAge*/ #doggieAge: Int, var /*insertDoggieSex*/ #doggieSex:String) -> String { // notice '#' sign
     switch doggieSex {          // 👈 notice that the local name is still being used here
-        
+
     case "he", "male", "Male":
     doggieSex = "he"
-        
+
     case "she", "female", "Female":
     /*var*/ doggieSex = "she"       // the 'var' keyword wasn't even needed for this to compile
-        
-        
+
+
     default:
     doggieSex = "it"
-        
+
     }
 return "This dog's named \(doggieName) and \(doggieSex) is \(doggieAge) years old!"
 }
@@ -2009,7 +2012,7 @@ func newJoiner(#joinThisString: String, #withThisNewString:String, /*#*/usingThi
 newJoiner(joinThisString: "Hello", withThisNewString: "World!")
 newJoiner(joinThisString: "Hello", withThisNewString: "World!", usingThisDefaultJoiner: " - ")
 
-// 👆 in the two lines above, on the first line, i used the default value to concactonate the the two strings. In the second line, i actually set the value for the 'usingThisDefaultJoiner' line. If i'm not going to use the default value, then i have to erase it altogether. 
+// 👆 in the two lines above, on the first line, i used the default value to concactonate the the two strings. In the second line, i actually set the value for the 'usingThisDefaultJoiner' line. If i'm not going to use the default value, then i have to erase it altogether.
 
 
 
@@ -2017,54 +2020,54 @@ newJoiner(joinThisString: "Hello", withThisNewString: "World!", usingThisDefault
 
 
 func gameResults (
-    
+
     #washingtonWizards: String,
     #miamiHeat: String,
     #inThisCity:String,
     var optionalFinalWizardScoreWas: Int = 0,   // You can avoid defining a new variable yourself within the function by specifying one or more parameters as variable parameters instead. See below...
-    
+
     var optionalFinalMiamiScoreWas: Int = 0,
     var optionalThisTeamWon:String = "This team won!",
     var optionalThisTeamLost:String = "",
     var optionalExcitingGame:Bool = true,
     var optionalBriefDescription:String = ""
-    
+
                 )
 
     -> String {
-        
+
         // i'm good enough to but in a simple number comparison string up here. Input the scores
-        
+
         switch optionalThisTeamWon{
         case "miami Heat", "Miami Heat", "the Heat", "#SuckABron", "the miami Heat", "the Miami Heat":
             let optionalThisTeamWon = "The Miami Heat"
-            
+
         case "washington Wizards", "the Wizards", "Washington Wizards", "the washington Wizards", "the Washington Wizards":
             let optionalThisTeamWon = "The Washington Wizards"
-            
+
         default:
             let optionalThisTeamWon = "We'll have an update for you as soon as this game is over."
         }
-        
+
         if optionalThisTeamWon == "The Miami Heat"{
             let optionalThisTeamWon = true
         }
-        
+
         // maybe i need to call a new variable for the example that i'm trying to pull off below. Call that new variable, and see if it matches the optionalThisTeamWon above...
-    
+
 //        switch optionalBriefDescription{
-//            
+//
 //            case optionalThisTeamWon.
 //                optionalBriefDescription = "In today's thriller match, the Miami Heat fired things up as they sizzled all over the court in what we can only describe as Lebron Jame's best gave ever!. We'll put in a description here later to let you know how this game went!"
-//                    
+//
 //            case optionalThisTeamWon = "":
 //                optionalBriefDescription = "-"
-//            
-//            
+//
+//
 //            {
-        
+
         return "In today's exciting game, \(optionalThisTeamWon) beat \(optionalThisTeamLost). The final score was \(optionalFinalMiamiScoreWas) to \(optionalFinalWizardScoreWas)! Stay tuned for the game highlights!"
-        
+
         }
 
 
@@ -2085,7 +2088,7 @@ func gameResults (
 
 
 
-// VARIADIC PARAMETERS - A Variadic Parameter accepts zero or more values of a specified type. You write a Variadic Parameter by inserting an elipsis (...) after a parameter's type name. 
+// VARIADIC PARAMETERS - A Variadic Parameter accepts zero or more values of a specified type. You write a Variadic Parameter by inserting an elipsis (...) after a parameter's type name.
 
     // The values passed to a Variadic Parameter are made available in the body of the function as an array of the appropriate type.
 
@@ -2171,7 +2174,7 @@ func swapTwoInts (inout aaa:Int, inout bbb:Int) {
     let temporaryA = aaa
     aaa = bbb
     bbb = temporaryA
-   
+
 }
 
 
@@ -2278,9 +2281,9 @@ stepForward(9)
 
 
 func chooseStepFunction (backwards:Bool) -> Int -> Int{ // the first Int is a function type, which will then return an Int
-   
+
     return backwards ? stepBackward : stepForward   // notice question mark and colon between the two functions.
-    
+
     // 👆the above line can also be written as:
         // if backwards {
         // return stepBackward
@@ -2378,7 +2381,7 @@ var currentValue2 = -4
 // ****          ****
 // **** CLOSURES ****
 // ****          ****
-// **** CLOSURES ****       
+// **** CLOSURES ****
 // ****          ****
 
 
@@ -2436,7 +2439,7 @@ var forwardSort = sorted(newNames, forwards)    // sorted is a Closure
 
 
 newReversed = sorted(newNames, {(s1:String, s2: String) ->
-    
+
     Bool in return s2 < s1 })
 
         //👆 “The start of the closure’s body is introduced by the 'in' keyword. ”
@@ -2521,11 +2524,3 @@ var newForward = sorted(newNames, {(s1:String, s2: String) ->
 //
 //var uppCase: () = makeAllCaps("Let's make this string all caps!")
 //
-
-
-
-
-
-
-
-
