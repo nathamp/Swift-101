@@ -16,6 +16,9 @@ optionalString = nil
 
 
 
+var test = "this is a test"
+
+
 
 /*
 
