@@ -3,6 +3,7 @@ Playing around in Playground. Nothing fancy to see here...
 
 
 JUST TESTING TO SEE IF THIS CHANGE WILL BE ADDED!!!! HOPEFULLY IT DOES!!
+ADDITIONALLY, I CAN ADD LINES OF CODE FROM THE WEBSITE AS WELL! NOW TO TEST TO SEE HOW GITHUB ON MAC WILL DISPLAY EVERYTHING IN ONE WINDOW
 
 
 // Playground - noun: a place where people can play
